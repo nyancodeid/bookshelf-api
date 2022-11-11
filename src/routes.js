@@ -6,32 +6,22 @@ const {
   deleteBooksByIdHandler,
 } = require('./handler');
 
+const useRoute = (method, path) => ({
+  withHandler(handler) {
+    return {
+      method,
+      path,
+      handler,
+    };
+  },
+});
+
 const routes = [
-  {
-    method: 'POST',
-    path: '/books',
-    handler: addBookHandler,
-  },
-  {
-    method: 'GET',
-    path: '/books',
-    handler: getAllBooksHandler,
-  },
-  {
-    method: 'GET',
-    path: '/books/{id}',
-    handler: getBooksByIdHandler,
-  },
-  {
-    method: 'PUT',
-    path: '/books/{id}',
-    handler: editBooksByIdHandler,
-  },
-  {
-    method: 'DELETE',
-    path: '/books/{id}',
-    handler: deleteBooksByIdHandler,
-  },
+  useRoute('GET', '/books').withHandler(getAllBooksHandler),
+  useRoute('GET', '/books/{id}').withHandler(getBooksByIdHandler),
+  useRoute('POST', '/books').withHandler(addBookHandler),
+  useRoute('PUT', '/books/{id}').withHandler(editBooksByIdHandler),
+  useRoute('DELETE', '/books/{id}').withHandler(deleteBooksByIdHandler),
 ];
 
 module.exports = routes;

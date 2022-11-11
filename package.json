@@ -1,25 +1,26 @@
 {
-  "name": "nodejs-web-server",
+  "name": "bookshelf-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "start:prod": "NODE_ENV=production node ./src/server.js",
-    "start:dev": "nodemon ./src/server.js",
+    "serve": "cross-env NODE_ENV=production node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ryan Aunur Rassyid <ryandevstudio@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "^8.18.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "nodemon": "^2.0.16"
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^2.0.20"
   }
 }
